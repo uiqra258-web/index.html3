@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- SEO -->
+  <title>Iqra Digital Studio | Crafting Digital Experiences That Inspire Growth</title>
+  <meta name="description" content="Iqra Digital Studio is a premium digital agency specializing in web design, branding, UI/UX, and growth marketing for ambitious modern brands.">
+  <meta name="keywords" content="digital agency, web design, branding, UI/UX, Iqra Digital Studio">
+  <meta name="author" content="Iqra Digital Studio">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://iqradigitalstudio.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Iqra Digital Studio">
+  <meta property="og:description" content="Crafting digital experiences that inspire growth for modern brands.">
+  <meta property="og:url" content="https://iqradigitalstudio.com/">
+  <meta property="og:site_name" content="Iqra Digital Studio">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+/* ================================================================
+   IQRA DIGITAL STUDIO — Design System
+   Warm editorial luxury: charcoal + cream + amber accents
+   ================================================================ */
+
+/* --- Variables --- */
+:root {
+  --amber: #D4A853;
+  --amber-light: #E8C97A;
+  --sage: #7C9885;
+  --coral: #C45C4A;
+
+  --dark: #121218;
+  --dark-2: #1C1C26;
+  --dark-3: #262633;
+  --cream: #F5F0EB;
+  --muted: #A8A29E;
+
+  --gradient: linear-gradient(135deg, var(--amber) 0%, var(--coral) 50%, var(--sage) 100%);
+  --gradient-soft: linear-gradient(135deg, rgba(212,168,83,.15), rgba(124,152,133,.1));
+
+  --bg: var(--dark);
+  --bg-alt: var(--dark-2);
+  --text: var(--cream);
+  --text-muted: var(--muted);
+  --border: rgba(245, 240, 235, 0.08);
+  --glass: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  --glow: 0 0 50px rgba(212, 168, 83, 0.15);
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+
+  --radius: 14px;
+  --radius-lg: 22px;
+  --header-h: 76px;
+  --container: 1180px;
+  --section-pad: clamp(4.5rem, 9vw, 7.5rem);
+  --ease: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="light"] {
+  --bg: #FAF8F5;
+  --bg-alt: #FFFFFF;
+  --text: #1A1A1A;
+  --text-muted: #6B6560;
+  --border: rgba(26, 26, 26, 0.08);
+  --glass: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(26, 26, 26, 0.1);
+  --shadow: 0 12px 40px rgba(26, 26, 26, 0.08);
+}
+
+/* --- Reset --- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  overflow-x: hidden;
+  transition: background var(--ease), color var(--ease);
+}
+img { max-width: 100%; display: block; height: auto; }
+a { color: inherit; text-decoration: none; transition: color var(--ease); }
+button { cursor: pointer; border: none; background: none; font: inherit; color: inherit; }
+ul { list-style: none; }
+
+.container { width: min(var(--container), 92%); margin-inline: auto; }
+.section { padding-block: var(--section-pad); }
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+.skip-link {
+  position: absolute; top: -100%; left: 1rem; z-index: 9999;
+  background: var(--amber); color: var(--dark); padding: 0.75rem 1.25rem;
+  border-radius: 8px; font-weight: 600;
+}
+.skip-link:focus { top: 1rem; }
+
+/* --- Typography --- */
+.eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 1rem;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 4.5vw, 3.2rem);
+  font-weight: 600;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+.section-title--sm { font-size: clamp(1.6rem, 3vw, 2rem); }
+.section-desc { color: var(--text-muted); max-width: 540px; font-size: 1.05rem; }
+.section-head { text-align: center; margin-bottom: 3.5rem; }
+.section-head .section-desc { margin-inline: auto; }
+.accent-text { font-style: italic; color: var(--amber); }
+
+/* --- Buttons --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1.8rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  transition: all var(--ease);
+  border: 2px solid transparent;
+}
+.btn--primary {
+  background: var(--gradient);
+  color: var(--dark);
+  box-shadow: var(--glow);
+}
+.btn--primary:hover { transform: translateY(-2px); filter: brightness(1.08); }
+.btn--outline {
+  border-color: var(--border);
+  background: transparent;
+}
+.btn--outline:hover { border-color: var(--amber); color: var(--amber); }
+.btn--sm { padding: 0.6rem 1.2rem; font-size: 0.85rem; }
+.btn--full { width: 100%; }
+
+/* --- Glass --- */
+.glass {
+  background: var(--glass);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* --- Focus --- */
+:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 3px;
+}
+
+/* ================================================================
+   LOADER
+   ================================================================ */
+.loader {
+  position: fixed; inset: 0; z-index: 10000;
+  background: var(--dark);
+  display: grid; place-items: center;
+  transition: opacity 0.7s ease, visibility 0.7s ease;
+}
+.loader.is-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+.loader__content { text-align: center; }
+.loader__mark {
+  display: inline-grid; place-items: center;
+  width: 68px; height: 68px;
+  background: var(--gradient);
+  border-radius: 18px;
+  font-weight: 800; font-size: 1.4rem; color: var(--dark);
+  animation: logoPulse 1.6s ease-in-out infinite;
+}
+.loader__name { display: block; margin-top: 0.85rem; font-weight: 600; color: var(--text-muted); }
+.loader__ring {
+  width: 36px; height: 36px; margin: 1.5rem auto;
+  border: 2px solid rgba(212,168,83,.2);
+  border-top-color: var(--amber);
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+}
+.loader__bar-track {
+  width: 180px; height: 3px; margin: 0 auto 0.75rem;
+  background: rgba(255,255,255,.08); border-radius: 3px; overflow: hidden;
+}
+.loader__bar { height: 100%; width: 0; background: var(--gradient); transition: width 0.12s linear; }
+.loader__text { font-size: 0.82rem; color: var(--text-muted); }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes logoPulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.04); } }
+
+/* ================================================================
+   HEADER
+   ================================================================ */
+.header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  height: var(--header-h);
+  transition: all var(--ease);
+}
+.header.is-scrolled {
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: var(--shadow);
+}
+.nav {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 100%;
+}
+.nav__brand { display: flex; align-items: center; gap: 0.7rem; font-weight: 700; }
+.nav__logo {
+  width: 38px; height: 38px; display: grid; place-items: center;
+  background: var(--gradient); border-radius: 10px;
+  color: var(--dark); font-size: 0.8rem; font-weight: 800;
+}
+.nav__title { font-size: 0.95rem; }
+.nav__links { display: flex; gap: 1.75rem; }
+.nav__link {
+  font-size: 0.88rem; font-weight: 500; color: var(--text-muted);
+  position: relative;
+}
+.nav__link::after {
+  content: ''; position: absolute; left: 0; bottom: -4px;
+  width: 0; height: 1.5px; background: var(--amber);
+  transition: width var(--ease);
+}
+.nav__link:hover, .nav__link.active { color: var(--text); }
+.nav__link.active::after, .nav__link:hover::after { width: 100%; }
+.nav__actions { display: flex; align-items: center; gap: 0.85rem; }
+.nav__toggle { display: none; flex-direction: column; gap: 5px; padding: 0.5rem; }
+.nav__toggle span { width: 22px; height: 2px; background: var(--text); transition: all var(--ease); }
+.nav__toggle.is-open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.nav__toggle.is-open span:nth-child(2) { opacity: 0; }
+.nav__toggle.is-open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+.theme-btn {
+  width: 42px; height: 42px; border-radius: 50%;
+  display: grid; place-items: center;
+  border: 1px solid var(--glass-border);
+  background: var(--glass);
+}
+[data-theme="dark"] .icon-sun { display: block; }
+[data-theme="dark"] .icon-moon { display: none; }
+[data-theme="light"] .icon-sun { display: none; }
+[data-theme="light"] .icon-moon { display: block; }
+
+/* ================================================================
+   HERO
+   ================================================================ */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  position: relative;
+  padding-top: var(--header-h);
+  overflow: hidden;
+}
+.hero__bg { position: absolute; inset: 0; z-index: 0; }
+.hero__gradient {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(212,168,83,.12), transparent),
+    radial-gradient(ellipse 50% 40% at 10% 80%, rgba(124,152,133,.08), transparent);
+}
+.hero__grain {
+  position: absolute; inset: 0; opacity: 0.035; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.hero__grid {
+  display: grid; grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+  position: relative; z-index: 1;
+}
+.hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 5.5vw, 4rem);
+  font-weight: 600;
+  line-height: 1.08;
+  margin-bottom: 1.4rem;
+}
+.hero__subtitle { color: var(--text-muted); font-size: 1.1rem; max-width: 480px; margin-bottom: 2rem; }
+.hero__cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+.hero__frame { position: relative; border-radius: var(--radius-lg); overflow: hidden; }
+.hero__frame img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+.hero__badge {
+  position: absolute; bottom: 1.25rem; left: 1.25rem;
+  padding: 1rem 1.25rem; text-align: center;
+}
+.hero__badge strong { display: block; font-size: 1.6rem; color: var(--amber); }
+.hero__badge span { font-size: 0.75rem; color: var(--text-muted); }
+.hero__float {
+  position: absolute; top: 1.25rem; right: 1.25rem;
+  display: flex; align-items: center; gap: 0.5rem;
+  padding: 0.65rem 1rem; font-size: 0.82rem;
+}
+.hero__float .dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #4ADE80; animation: blink 1.5s infinite;
+}
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+.scroll-hint {
+  position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text-muted); z-index: 1;
+}
+.scroll-hint__line {
+  width: 1px; height: 36px; background: var(--text-muted);
+  animation: scrollLine 2s ease-in-out infinite;
+}
+@keyframes scrollLine { 0%,100% { transform: scaleY(0.4); opacity: 0.3; } 50% { transform: scaleY(1); opacity: 1; } }
+
+/* ================================================================
+   CLIENTS MARQUEE
+   ================================================================ */
+.clients { padding: 2.5rem 0; border-block: 1px solid var(--border); overflow: hidden; }
+.clients__label {
+  text-align: center; font-size: 0.78rem; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--text-muted); margin-bottom: 1.25rem;
+}
+.marquee { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
+.marquee__inner {
+  display: flex; gap: 3.5rem; width: max-content;
+  animation: marquee 28s linear infinite;
+}
+.marquee__inner span {
+  font-family: var(--font-display);
+  font-size: 1.35rem; font-weight: 600;
+  color: var(--text-muted); white-space: nowrap;
+  transition: color var(--ease);
+}
+.marquee__inner span:hover { color: var(--amber); }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* ================================================================
+   ABOUT
+   ================================================================ */
+.about__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.about__gallery { position: relative; }
+.about__img { border-radius: var(--radius-lg); }
+.about__img--main { width: 82%; }
+.about__img--sub {
+  position: absolute; bottom: -8%; right: 0; width: 52%;
+  border: 4px solid var(--bg); box-shadow: var(--shadow);
+}
+.about__tag {
+  position: absolute; top: 8%; right: 6%; padding: 1.1rem 1.3rem; text-align: center;
+}
+.about__tag strong { display: block; font-size: 1.8rem; color: var(--amber); }
+.about__pillars { display: grid; gap: 1.5rem; margin: 2rem 0; }
+.about__pillars h3 { font-size: 1.05rem; margin-bottom: 0.4rem; }
+.about__pillars p { color: var(--text-muted); font-size: 0.94rem; }
+.mini-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.85rem; }
+.mini-stat { padding: 1.1rem; text-align: center; }
+.mini-stat strong { display: block; font-size: 1.6rem; font-weight: 700; }
+.mini-stat span { font-size: 0.75rem; color: var(--text-muted); }
+
+/* ================================================================
+   SERVICES
+   ================================================================ */
+.services__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.service-card {
+  padding: 2rem 1.75rem;
+  transition: transform var(--ease), box-shadow var(--ease);
+  position: relative; overflow: hidden;
+}
+.service-card::before {
+  content: ''; position: absolute; inset: 0;
+  background: var(--gradient-soft); opacity: 0;
+  transition: opacity var(--ease);
+}
+.service-card:hover { transform: translateY(-6px); box-shadow: var(--glow); }
+.service-card:hover::before { opacity: 1; }
+.service-card > * { position: relative; z-index: 1; }
+.service-card__icon {
+  width: 52px; height: 52px; display: grid; place-items: center;
+  border-radius: 12px; background: rgba(212,168,83,.12);
+  color: var(--amber); margin-bottom: 1.15rem;
+}
+.service-card h3 { font-size: 1.15rem; margin-bottom: 0.65rem; }
+.service-card p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.1rem; }
+.service-card__link { font-weight: 600; font-size: 0.88rem; color: var(--amber); }
+.service-card__link:hover { color: var(--amber-light); }
+
+/* ================================================================
+   WHY
+   ================================================================ */
+.why__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+.why-card {
+  padding: 2rem 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: all var(--ease);
+}
+.why-card:hover { border-color: rgba(212,168,83,.35); transform: translateY(-4px); }
+.why-card__num {
+  display: block; font-family: var(--font-display);
+  font-size: 2rem; color: var(--amber); opacity: 0.5; margin-bottom: 0.75rem;
+}
+.why-card h3 { font-size: 1.05rem; margin-bottom: 0.6rem; }
+.why-card p { color: var(--text-muted); font-size: 0.88rem; }
+
+/* ================================================================
+   PORTFOLIO
+   ================================================================ */
+.filter { display: flex; justify-content: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+.filter__btn {
+  padding: 0.45rem 1.15rem; border-radius: 999px;
+  font-size: 0.82rem; font-weight: 500;
+  border: 1px solid var(--border); color: var(--text-muted);
+  transition: all var(--ease);
+}
+.filter__btn.active, .filter__btn:hover {
+  background: var(--gradient); color: var(--dark); border-color: transparent;
+}
+.portfolio__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.project { border-radius: var(--radius); overflow: hidden; transition: opacity var(--ease); }
+.project.is-hidden { display: none; }
+.project__media { position: relative; overflow: hidden; aspect-ratio: 4/3; }
+.project__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.55s ease; }
+.project:hover .project__media img { transform: scale(1.06); }
+.project__overlay {
+  position: absolute; inset: 0;
+  background: rgba(18,18,24,.72);
+  display: grid; place-items: center;
+  opacity: 0; transition: opacity var(--ease);
+}
+.project:hover .project__overlay { opacity: 1; }
+.project__body { padding: 1.15rem; background: var(--bg-alt); }
+.project__tag {
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--amber);
+}
+.project__body h3 { font-size: 1.05rem; margin: 0.2rem 0; }
+.project__body p { font-size: 0.85rem; color: var(--text-muted); }
+
+/* ================================================================
+   STATS BAND
+   ================================================================ */
+.stats-band {
+  padding: 4rem 0;
+  background: var(--gradient);
+  color: var(--dark);
+}
+.stats-band__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center; }
+.stat strong { display: block; font-family: var(--font-display); font-size: clamp(2.4rem, 5vw, 3.4rem); font-weight: 700; }
+.stat span { font-size: 0.92rem; font-weight: 500; }
+
+/* ================================================================
+   TESTIMONIALS
+   ================================================================ */
+.slider { max-width: 680px; margin-inline: auto; overflow: hidden; }
+.slider__track { display: flex; transition: transform 0.5s cubic-bezier(0.4,0,0.2,1); }
+.slide {
+  min-width: 100%; padding: 1.5rem 1rem;
+  text-align: center;
+}
+.slide p {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.5vw, 1.45rem);
+  line-height: 1.55; font-style: italic;
+  color: var(--text-muted); margin-bottom: 2rem;
+}
+.slide footer { display: flex; align-items: center; justify-content: center; gap: 0.85rem; }
+.slide footer img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 2px solid var(--amber); }
+.slide cite { display: block; font-style: normal; font-weight: 600; font-size: 0.95rem; }
+.slide footer span { font-size: 0.82rem; color: var(--text-muted); }
+.slider__controls { display: flex; align-items: center; justify-content: center; gap: 1.25rem; margin-top: 1.5rem; }
+.slider__arrow {
+  width: 42px; height: 42px; border-radius: 50%;
+  border: 1px solid var(--border); font-size: 1rem;
+  transition: all var(--ease);
+}
+.slider__arrow:hover { background: var(--amber); color: var(--dark); border-color: var(--amber); }
+.slider__dots { display: flex; gap: 0.45rem; }
+.slider__dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--border); padding: 0;
+  transition: all var(--ease);
+}
+.slider__dot.is-active { background: var(--amber); width: 24px; border-radius: 4px; }
+
+/* ================================================================
+   TEAM
+   ================================================================ */
+.team__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+.team-card { border-radius: var(--radius); overflow: hidden; transition: transform var(--ease); }
+.team-card:hover { transform: scale(1.025); }
+.team-card__photo { aspect-ratio: 3/4; overflow: hidden; }
+.team-card__photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.team-card:hover .team-card__photo img { transform: scale(1.04); }
+.team-card__info { padding: 1.15rem; background: var(--bg-alt); text-align: center; }
+.team-card__info p { font-size: 0.84rem; color: var(--text-muted); margin: 0.2rem 0 0.65rem; }
+.team-card__social {
+  display: flex; justify-content: center; gap: 0.6rem;
+  opacity: 0; transform: translateY(6px); transition: all var(--ease);
+}
+.team-card:hover .team-card__social { opacity: 1; transform: translateY(0); }
+.team-card__social a {
+  width: 30px; height: 30px; border-radius: 50%;
+  display: grid; place-items: center;
+  font-size: 0.65rem; font-weight: 700;
+  border: 1px solid var(--border); background: var(--glass);
+}
+.team-card__social a:hover { background: var(--amber); color: var(--dark); border-color: var(--amber); }
+
+/* ================================================================
+   FAQ
+   ================================================================ */
+.faq__wrap { max-width: 740px; margin-inline: auto; }
+.accordion__item { border-bottom: 1px solid var(--border); }
+.accordion__trigger {
+  width: 100%; text-align: left;
+  padding: 1.2rem 0; font-size: 0.98rem; font-weight: 600;
+  display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+}
+.accordion__trigger::after {
+  content: '+'; font-size: 1.4rem; color: var(--amber);
+  transition: transform var(--ease); flex-shrink: 0;
+}
+.accordion__item.is-open .accordion__trigger::after { transform: rotate(45deg); }
+.accordion__panel { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; }
+.accordion__item.is-open .accordion__panel { max-height: 220px; padding-bottom: 1.15rem; }
+.accordion__panel p { color: var(--text-muted); font-size: 0.92rem; line-height: 1.7; }
+
+/* ================================================================
+   CONTACT
+   ================================================================ */
+.contact__grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3rem; }
+.form-field { margin-bottom: 1.15rem; }
+.form-field label { display: block; font-size: 0.82rem; font-weight: 500; margin-bottom: 0.45rem; }
+.form-field input, .form-field textarea {
+  width: 100%; padding: 0.85rem 1rem;
+  border-radius: 10px; border: 1px solid var(--border);
+  background: var(--glass); color: var(--text);
+  font-family: inherit; font-size: 0.92rem;
+  transition: border-color var(--ease), box-shadow var(--ease);
+}
+.form-field input:focus, .form-field textarea:focus {
+  outline: none; border-color: var(--amber);
+  box-shadow: 0 0 0 3px rgba(212,168,83,.12);
+}
+.info-card { padding: 1.75rem; margin-bottom: 1.15rem; }
+.info-card h3 { margin-bottom: 1rem; }
+.info-card li { margin-bottom: 0.85rem; }
+.info-card strong { display: block; font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.15rem; }
+.info-card a:hover { color: var(--amber); }
+.map-card { overflow: hidden; padding: 0; }
+.map-card iframe { width: 100%; height: 240px; border: 0; filter: grayscale(0.25) contrast(1.05); }
+
+/* ================================================================
+   NEWSLETTER
+   ================================================================ */
+.newsletter__card {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 2rem; padding: clamp(2rem, 4vw, 3rem);
+  border-radius: var(--radius-lg);
+}
+.newsletter-form { display: flex; gap: 0.65rem; flex-shrink: 0; }
+.newsletter-form input {
+  padding: 0.85rem 1.15rem; border-radius: 999px;
+  border: 1px solid var(--border); background: rgba(0,0,0,.15);
+  color: var(--text); font-family: inherit; min-width: 250px;
+}
+.newsletter-form input:focus { outline: none; border-color: var(--amber); }
+
+/* ================================================================
+   FOOTER
+   ================================================================ */
+.footer { padding: 4rem 0 2rem; border-top: 1px solid var(--border); }
+.footer__top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2rem; margin-bottom: 2.5rem; }
+.footer__brand p { color: var(--text-muted); font-size: 0.9rem; margin-top: 0.85rem; max-width: 280px; }
+.footer__col h4 { font-size: 0.88rem; margin-bottom: 0.85rem; }
+.footer__col li { margin-bottom: 0.45rem; font-size: 0.88rem; color: var(--text-muted); }
+.footer__col a:hover { color: var(--amber); }
+.footer__bottom {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 1rem; padding-top: 1.75rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.82rem; color: var(--text-muted);
+}
+.footer__legal, .footer__social { display: flex; gap: 1.15rem; }
+.footer__social a:hover { color: var(--amber); }
+
+/* ================================================================
+   BACK TO TOP + REVEAL
+   ================================================================ */
+.back-top {
+  position: fixed; bottom: 1.75rem; right: 1.75rem; z-index: 900;
+  width: 46px; height: 46px; border-radius: 50%;
+  background: var(--gradient); color: var(--dark);
+  font-size: 1.15rem; font-weight: 700;
+  box-shadow: var(--glow);
+  opacity: 0; visibility: hidden; transform: translateY(16px);
+  transition: all var(--ease);
+}
+.back-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+.back-top:hover { transform: translateY(-3px); }
+
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* ================================================================
+   RESPONSIVE (mobile-first breakpoints)
+   ================================================================ */
+@media (max-width: 1024px) {
+  .hero__grid, .about__grid, .contact__grid { grid-template-columns: 1fr; }
+  .services__grid, .portfolio__grid { grid-template-columns: repeat(2, 1fr); }
+  .why__grid, .team__grid, .stats-band__grid { grid-template-columns: repeat(2, 1fr); }
+  .footer__top { grid-template-columns: repeat(2, 1fr); }
+  .mini-stats { grid-template-columns: repeat(2, 1fr); }
+  .hero__media { max-width: 520px; margin-inline: auto; }
+}
+
+@media (max-width: 768px) {
+  .nav__toggle { display: flex; }
+  .nav__menu {
+    position: fixed; inset: var(--header-h) 0 0 0;
+    background: var(--bg);
+    flex-direction: column; align-items: flex-start;
+    padding: 2rem; gap: 0;
+    transform: translateX(100%);
+    transition: transform var(--ease);
+    display: flex;
+  }
+  .nav__menu.is-open { transform: translateX(0); }
+  .nav__links { flex-direction: column; gap: 1.25rem; width: 100%; margin-bottom: 1.5rem; }
+  .nav__actions { width: 100%; justify-content: space-between; }
+  .services__grid, .portfolio__grid, .why__grid, .team__grid { grid-template-columns: 1fr; }
+  .newsletter__card { flex-direction: column; text-align: center; }
+  .newsletter-form { flex-direction: column; width: 100%; }
+  .newsletter-form input { min-width: unset; width: 100%; }
+  .footer__top, .footer__bottom { grid-template-columns: 1fr; text-align: center; flex-direction: column; }
+  .hero__float { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+
+  <!-- ==================== LOADING SCREEN ==================== -->
+  <div id="loader" class="loader" aria-hidden="true">
+    <div class="loader__content">
+      <div class="loader__logo">
+        <span class="loader__mark">IQ</span>
+        <span class="loader__name">Iqra Digital Studio</span>
+      </div>
+      <div class="loader__ring"></div>
+      <div class="loader__bar-track">
+        <div class="loader__bar" id="loaderBar"></div>
+      </div>
+      <p class="loader__text">Preparing your experience</p>
+    </div>
+  </div>
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- ==================== STICKY NAVBAR ==================== -->
+  <header class="header" id="header">
+    <nav class="nav container" aria-label="Primary navigation">
+      <a href="#home" class="nav__brand" aria-label="Digital Studio home">
+        <span class="nav__logo">IQ</span>
+        <span class="nav__title">Digital Studio</span>
+      </a>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMenu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav__menu" id="navMenu">
+        <ul class="nav__links">
+          <li><a href="#home" class="nav__link active">Home</a></li>
+          <li><a href="#about" class="nav__link">About</a></li>
+          <li><a href="#services" class="nav__link">Services</a></li>
+          <li><a href="#portfolio" class="nav__link">Work</a></li>
+          <li><a href="#team" class="nav__link">Team</a></li>
+          <li><a href="#contact" class="nav__link">Contact</a></li>
+        </ul>
+        <div class="nav__actions">
+          <button class="theme-btn" id="themeToggle" aria-label="Toggle dark or light mode">
+            <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2"/>
+            </svg>
+            <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </button>
+          <a href="#contact" class="btn btn--primary btn--sm">Start a Project</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero" id="home" aria-labelledby="hero-heading">
+      <div class="hero__bg">
+        <div class="hero__gradient"></div>
+        <div class="hero__grain"></div>
+      </div>
+      <div class="container hero__grid">
+        <div class="hero__content reveal">
+          <p class="eyebrow">Premium Digital Agency</p>
+          <h1 id="hero-heading" class="hero__title">
+            We Design <em class="accent-text">Growth-Driven</em> Digital Experiences For Bold Brands
+          </h1>
+          <p class="hero__subtitle">
+            Iqra Digital Studio builds websites, brand systems, and digital products that help ambitious companies stand out and scale with confidence.
+          </p>
+          <div class="hero__cta">
+            <a href="#contact" class="btn btn--primary">Start a Project</a>
+            <a href="#portfolio" class="btn btn--outline">View Our Work</a>
+          </div>
+        </div>
+        <div class="hero__media reveal" data-parallax="0.06">
+          <div class="hero__frame">
+            <img
+              src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=900&q=80"
+              alt="Abstract premium digital design artwork"
+              loading="eager"
+              width="900"
+              height="700"
+            >
+            <div class="hero__badge glass">
+              <strong>250+</strong>
+              <span>Projects Delivered</span>
+            </div>
+            <div class="hero__float glass">
+              <span class="dot"></span>
+              <span>Live Strategy Session</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="#clients" class="scroll-hint" aria-label="Scroll to clients section">
+        <span>Explore</span>
+        <span class="scroll-hint__line"></span>
+      </a>
+    </section>
+
+    <!-- ==================== TRUSTED BY ==================== -->
+    <section class="clients" id="clients" aria-label="Trusted by leading brands">
+      <p class="clients__label">Trusted by forward-thinking brands</p>
+      <div class="marquee">
+        <div class="marquee__inner">
+          <span>NovaCraft</span><span>PixelHaus</span><span>CloudNest</span><span>Artemis Group</span><span>Vertex Co</span><span>Horizon Labs</span>
+          <span>NovaCraft</span><span>PixelHaus</span><span>CloudNest</span><span>Artemis Group</span><span>Vertex Co</span><span>Horizon Labs</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ABOUT ==================== -->
+    <section class="about section" id="about" aria-labelledby="about-heading">
+      <div class="container about__grid">
+        <div class="about__gallery reveal">
+          <img class="about__img about__img--main" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=700&q=80" alt="Modern agency workspace" loading="lazy">
+          <img class="about__img about__img--sub" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=500&q=80" alt="Creative team collaborating" loading="lazy">
+          <div class="about__tag glass">
+            <strong>10+</strong>
+            <span>Years of Craft</span>
+          </div>
+        </div>
+        <div class="about__content reveal">
+          <p class="eyebrow">About the Studio</p>
+          <h2 id="about-heading" class="section-title">Where Strategy Meets Beautiful Digital Craft</h2>
+          <p class="section-desc">
+            Founded on the belief that great brands deserve digital experiences as refined as their ambition, Iqra Digital Studio partners with companies ready to lead—not follow.
+          </p>
+          <div class="about__pillars">
+            <article>
+              <h3>Mission</h3>
+              <p>Transform brand vision into digital experiences that build trust, drive action, and deliver measurable growth.</p>
+            </article>
+            <article>
+              <h3>Vision</h3>
+              <p>To be the studio ambitious founders choose when their digital presence must match the scale of their ideas.</p>
+            </article>
+          </div>
+          <div class="mini-stats">
+            <div class="mini-stat glass reveal"><strong data-count="250" data-suffix="+">0</strong><span>Projects</span></div>
+            <div class="mini-stat glass reveal"><strong data-count="98" data-suffix="%">0</strong><span>Satisfaction</span></div>
+            <div class="mini-stat glass reveal"><strong data-count="50" data-suffix="+">0</strong><span>Team</span></div>
+            <div class="mini-stat glass reveal"><strong data-count="120" data-suffix="+">0</strong><span>Clients</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SERVICES ==================== -->
+    <section class="services section" id="services" aria-labelledby="services-heading">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">What We Do</p>
+          <h2 id="services-heading" class="section-title">Services Built For Modern Growth</h2>
+          <p class="section-desc">End-to-end digital solutions designed to elevate your brand at every touchpoint.</p>
+        </header>
+        <div class="services__grid">
+          <article class="service-card glass reveal" data-tilt>
+            <div class="service-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            </div>
+            <h3>Web Design</h3>
+            <p>Premium, conversion-focused interfaces that communicate credibility in seconds.</p>
+            <a href="#contact" class="service-card__link">Learn more</a>
+          </article>
+          <article class="service-card glass reveal" data-tilt>
+            <div class="service-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h3>Web Development</h3>
+            <p>Fast, scalable, and maintainable websites engineered for performance and longevity.</p>
+            <a href="#contact" class="service-card__link">Learn more</a>
+          </article>
+          <article class="service-card glass reveal" data-tilt>
+            <div class="service-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+            </div>
+            <h3>UI/UX Design</h3>
+            <p>Research-led experiences with intuitive flows that reduce friction and increase engagement.</p>
+            <a href="#contact" class="service-card__link">Learn more</a>
+          </article>
+          <article class="service-card glass reveal" data-tilt>
+            <div class="service-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>
+            </div>
+            <h3>Branding</h3>
+            <p>Distinct identities and design systems that feel cohesive across every channel.</p>
+            <a href="#contact" class="service-card__link">Learn more</a>
+          </article>
+          <article class="service-card glass reveal" data-tilt>
+            <div class="service-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            </div>
+            <h3>SEO Optimization</h3>
+            <p>Technical and content strategies that improve visibility and attract qualified traffic.</p>
+            <a href="#contact" class="service-card__link">Learn more</a>
+          </article>
+          <article class="service-card glass reveal" data-tilt>
+            <div class="service-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <h3>Digital Marketing</h3>
+            <p>Campaigns rooted in data that amplify reach and accelerate measurable results.</p>
+            <a href="#contact" class="service-card__link">Learn more</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== WHY CHOOSE US ==================== -->
+    <section class="why section" id="why" aria-labelledby="why-heading">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">Why Iqra</p>
+          <h2 id="why-heading" class="section-title">A Partner, Not Just a Vendor</h2>
+        </header>
+        <div class="why__grid">
+          <article class="why-card reveal">
+            <span class="why-card__num">01</span>
+            <h3>Strategic Thinking</h3>
+            <p>Every design decision is tied to a business outcome—not aesthetics alone.</p>
+          </article>
+          <article class="why-card reveal">
+            <span class="why-card__num">02</span>
+            <h3>Creative Excellence</h3>
+            <p>Refined visual craft that elevates perception and sets you apart instantly.</p>
+          </article>
+          <article class="why-card reveal">
+            <span class="why-card__num">03</span>
+            <h3>Data-Driven Results</h3>
+            <p>We measure, iterate, and optimize so your investment compounds over time.</p>
+          </article>
+          <article class="why-card reveal">
+            <span class="why-card__num">04</span>
+            <h3>Long-Term Partnership</h3>
+            <p>From launch to growth, we stay invested in your brand's continued success.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PORTFOLIO ==================== -->
+    <section class="portfolio section" id="portfolio" aria-labelledby="portfolio-heading">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">Selected Work</p>
+          <h2 id="portfolio-heading" class="section-title">Case Studies That Move Brands Forward</h2>
+        </header>
+        <div class="filter reveal" role="tablist" aria-label="Filter portfolio projects">
+          <button class="filter__btn active" data-filter="all">All</button>
+          <button class="filter__btn" data-filter="branding">Branding</button>
+          <button class="filter__btn" data-filter="web">Web</button>
+          <button class="filter__btn" data-filter="uiux">UI/UX</button>
+          <button class="filter__btn" data-filter="marketing">Marketing</button>
+        </div>
+        <div class="portfolio__grid">
+          <article class="project reveal" data-category="web">
+            <div class="project__media">
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="Lumen Commerce website redesign" loading="lazy">
+              <div class="project__overlay"><a href="#" class="btn btn--primary btn--sm">View Case Study</a></div>
+            </div>
+            <div class="project__body">
+              <span class="project__tag">Web</span>
+              <h3>Lumen Commerce</h3>
+              <p>E-commerce platform redesign driving a 42% lift in conversions.</p>
+            </div>
+          </article>
+          <article class="project reveal" data-category="branding">
+            <div class="project__media">
+              <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80" alt="Solara brand identity system" loading="lazy">
+              <div class="project__overlay"><a href="#" class="btn btn--primary btn--sm">View Case Study</a></div>
+            </div>
+            <div class="project__body">
+              <span class="project__tag">Branding</span>
+              <h3>Solara Identity</h3>
+              <p>Full rebrand for a sustainable lifestyle company entering new markets.</p>
+            </div>
+          </article>
+          <article class="project reveal" data-category="uiux">
+            <div class="project__media">
+              <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&q=80" alt="VaultPay mobile banking app" loading="lazy">
+              <div class="project__overlay"><a href="#" class="btn btn--primary btn--sm">View Case Study</a></div>
+            </div>
+            <div class="project__body">
+              <span class="project__tag">UI/UX</span>
+              <h3>VaultPay App</h3>
+              <p>Mobile banking experience redesigned for 1.8M active users.</p>
+            </div>
+          </article>
+          <article class="project reveal" data-category="marketing">
+            <div class="project__media">
+              <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&q=80" alt="Pulse launch marketing campaign" loading="lazy">
+              <div class="project__overlay"><a href="#" class="btn btn--primary btn--sm">View Case Study</a></div>
+            </div>
+            <div class="project__body">
+              <span class="project__tag">Marketing</span>
+              <h3>Pulse Launch</h3>
+              <p>Integrated campaign generating 3.2× engagement across channels.</p>
+            </div>
+          </article>
+          <article class="project reveal" data-category="web">
+            <div class="project__media">
+              <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80" alt="Northline SaaS marketing site" loading="lazy">
+              <div class="project__overlay"><a href="#" class="btn btn--primary btn--sm">View Case Study</a></div>
+            </div>
+            <div class="project__body">
+              <span class="project__tag">Web</span>
+              <h3>Northline SaaS</h3>
+              <p>Enterprise product site with interactive demos and lead capture.</p>
+            </div>
+          </article>
+          <article class="project reveal" data-category="branding">
+            <div class="project__media">
+              <img src="https://images.unsplash.com/photo-1634942537034-2531765477f1?w=800&q=80" alt="Ember & Co creative studio branding" loading="lazy">
+              <div class="project__overlay"><a href="#" class="btn btn--primary btn--sm">View Case Study</a></div>
+            </div>
+            <div class="project__body">
+              <span class="project__tag">Branding</span>
+              <h3>Ember &amp; Co</h3>
+              <p>Visual identity for a boutique creative production studio.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== STATISTICS ==================== -->
+    <section class="stats-band" aria-labelledby="stats-heading">
+      <div class="container stats-band__grid">
+        <h2 id="stats-heading" class="visually-hidden">Studio achievements</h2>
+        <div class="stat reveal">
+          <strong class="counter" data-count="500" data-suffix="+">0</strong>
+          <span>Projects Delivered</span>
+        </div>
+        <div class="stat reveal">
+          <strong class="counter" data-count="120" data-suffix="+">0</strong>
+          <span>Global Clients</span>
+        </div>
+        <div class="stat reveal">
+          <strong class="counter" data-count="25" data-suffix="+">0</strong>
+          <span>Industry Awards</span>
+        </div>
+        <div class="stat reveal">
+          <strong class="counter" data-count="98" data-suffix="%">0</strong>
+          <span>Client Retention</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TESTIMONIALS ==================== -->
+    <section class="testimonials section" id="testimonials" aria-labelledby="testimonials-heading">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">Client Stories</p>
+          <h2 id="testimonials-heading" class="section-title">Trusted By Leaders Who Expect More</h2>
+        </header>
+        <div class="slider reveal" id="testimonialSlider">
+          <div class="slider__track" id="sliderTrack">
+            <blockquote class="slide active">
+              <p>"Iqra transformed our digital presence. Within six months, qualified leads increased by 60% and our brand finally feels premium."</p>
+              <footer><img src="https://i.pravatar.cc/80?img=12" alt="" loading="lazy"><div><cite>Sarah Alvi</cite><span>CEO, NovaCraft</span></div></footer>
+            </blockquote>
+            <blockquote class="slide">
+              <p>"They listen deeply, challenge thoughtfully, and deliver work that exceeds expectations. A rare creative partner."</p>
+              <footer><img src="https://i.pravatar.cc/80?img=33" alt="" loading="lazy"><div><cite>Marcus Webb</cite><span>Founder, PixelHaus</span></div></footer>
+            </blockquote>
+            <blockquote class="slide">
+              <p>"From strategy to launch, the process was seamless. Our new site generates inbound opportunities every single week."</p>
+              <footer><img src="https://i.pravatar.cc/80?img=45" alt="" loading="lazy"><div><cite>Elena Rodriguez</cite><span>CMO, CloudNest</span></div></footer>
+            </blockquote>
+            <blockquote class="slide">
+              <p>"The rebrand and website finally reflect who we are. Clients mention our site in the first conversation—every time."</p>
+              <footer><img src="https://i.pravatar.cc/80?img=15" alt="" loading="lazy"><div><cite>James Okonkwo</cite><span>Director, Artemis Group</span></div></footer>
+            </blockquote>
+            <blockquote class="slide">
+              <p>"Best investment we've made in years. ROI was visible within weeks, and the quality speaks for itself."</p>
+              <footer><img src="https://i.pravatar.cc/80?img=28" alt="" loading="lazy"><div><cite>Lisa Park</cite><span>VP Marketing, Vertex Co</span></div></footer>
+            </blockquote>
+            <blockquote class="slide">
+              <p>"Professional, responsive, and genuinely invested in our success. Iqra sets the standard for digital studios."</p>
+              <footer><img src="https://i.pravatar.cc/80?img=52" alt="" loading="lazy"><div><cite>David Miller</cite><span>Owner, Horizon Labs</span></div></footer>
+            </blockquote>
+          </div>
+          <div class="slider__controls">
+            <button class="slider__arrow" id="sliderPrev" aria-label="Previous testimonial">←</button>
+            <div class="slider__dots" id="sliderDots" role="tablist"></div>
+            <button class="slider__arrow" id="sliderNext" aria-label="Next testimonial">→</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TEAM ==================== -->
+    <section class="team section" id="team" aria-labelledby="team-heading">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">The Team</p>
+          <h2 id="team-heading" class="section-title">Meet the People Behind the Work</h2>
+        </header>
+        <div class="team__grid">
+          <article class="team-card reveal">
+            <div class="team-card__photo">
+              <img src="https://i.pravatar.cc/400?img=11" alt="Iqra Khan, Creative Director" loading="lazy">
+            </div>
+            <div class="team-card__info">
+              <h3>Iqra Khan</h3>
+              <p>Creative Director</p>
+              <div class="team-card__social">
+                <a href="#" aria-label="Iqra on LinkedIn">in</a>
+                <a href="#" aria-label="Iqra on Twitter">𝕏</a>
+                <a href="#" aria-label="Iqra on Dribbble">Dr</a>
+              </div>
+            </div>
+          </article>
+          <article class="team-card reveal">
+            <div class="team-card__photo">
+              <img src="https://i.pravatar.cc/400?img=32" alt="Maya Singh, Lead Developer" loading="lazy">
+            </div>
+            <div class="team-card__info">
+              <h3>Maya Singh</h3>
+              <p>Lead Developer</p>
+              <div class="team-card__social">
+                <a href="#" aria-label="Maya on LinkedIn">in</a>
+                <a href="#" aria-label="Maya on GitHub">GH</a>
+              </div>
+            </div>
+          </article>
+          <article class="team-card reveal">
+            <div class="team-card__photo">
+              <img src="https://i.pravatar.cc/400?img=47" alt="Jordan Lee, UX Strategist" loading="lazy">
+            </div>
+            <div class="team-card__info">
+              <h3>Jordan Lee</h3>
+              <p>UX Strategist</p>
+              <div class="team-card__social">
+                <a href="#" aria-label="Jordan on LinkedIn">in</a>
+                <a href="#" aria-label="Jordan on Behance">Be</a>
+              </div>
+            </div>
+          </article>
+          <article class="team-card reveal">
+            <div class="team-card__photo">
+              <img src="https://i.pravatar.cc/400?img=25" alt="Sam Foster, Brand Lead" loading="lazy">
+            </div>
+            <div class="team-card__info">
+              <h3>Sam Foster</h3>
+              <p>Brand Lead</p>
+              <div class="team-card__social">
+                <a href="#" aria-label="Sam on LinkedIn">in</a>
+                <a href="#" aria-label="Sam on Instagram">Ig</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== FAQ ==================== -->
+    <section class="faq section" id="faq" aria-labelledby="faq-heading">
+      <div class="container faq__wrap">
+        <header class="section-head reveal">
+          <p class="eyebrow">FAQ</p>
+          <h2 id="faq-heading" class="section-title">Questions Before We Partner</h2>
+        </header>
+        <div class="accordion reveal" id="faqAccordion">
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false">What services does Iqra Digital Studio offer?</button>
+            <div class="accordion__panel"><p>Web design, development, UI/UX, branding, SEO, and digital marketing—delivered as integrated solutions or standalone engagements.</p></div>
+          </div>
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false">How long does a typical project take?</button>
+            <div class="accordion__panel"><p>Most projects run 8–14 weeks depending on scope. We set clear milestones from day one so timelines stay predictable.</p></div>
+          </div>
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false">What is your pricing structure?</button>
+            <div class="accordion__panel"><p>Every project is custom-quoted after discovery. We offer transparent proposals with no hidden fees.</p></div>
+          </div>
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false">Do you work with startups and enterprises?</button>
+            <div class="accordion__panel"><p>Yes—we partner with early-stage founders, scaling companies, and established brands across industries.</p></div>
+          </div>
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false">Can you redesign an existing website?</button>
+            <div class="accordion__panel"><p>Absolutely. Strategic redesigns are a core specialty—we improve UX, performance, SEO, and brand perception together.</p></div>
+          </div>
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false">Do you offer post-launch support?</button>
+            <div class="accordion__panel"><p>Yes. We provide maintenance plans, optimization sprints, and retainer partnerships to keep your site performing at its best.</p></div>
+          </div>
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false">What does your process look like?</button>
+            <div class="accordion__panel"><p>Discover → Strategize → Design → Build → Launch → Optimize. You're involved at every stage with clear deliverables.</p></div>
+          </div>
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false">How do we get started?</button>
+            <div class="accordion__panel"><p>Reach out via the contact form below. We'll schedule a discovery call and send a tailored proposal within 48 hours.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CONTACT ==================== -->
+    <section class="contact section" id="contact" aria-labelledby="contact-heading">
+      <div class="container contact__grid">
+        <div class="contact__form-area reveal">
+          <p class="eyebrow">Get in Touch</p>
+          <h2 id="contact-heading" class="section-title">Ready to Elevate Your Brand?</h2>
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-field">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" required autocomplete="name">
+            </div>
+            <div class="form-field">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required autocomplete="email">
+            </div>
+            <div class="form-field">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel">
+            </div>
+            <div class="form-field">
+              <label for="message">Project Details</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary btn--full">Send Message</button>
+          </form>
+        </div>
+        <div class="contact__info reveal">
+          <div class="info-card glass">
+            <h3>Studio Info</h3>
+            <ul>
+              <li><strong>Email</strong><a href="mailto:hello@iqradigitalstudio.com">hello@iqradigitalstudio.com</a></li>
+              <li><strong>Phone</strong><a href="tel:+15559876543">+1 (555) 987-6543</a></li>
+              <li><strong>Address</strong><span>88 Innovation Way, Austin, TX 78701</span></li>
+            </ul>
+          </div>
+          <div class="map-card glass" aria-label="Office location map">
+            <iframe
+              title="Iqra Digital Studio office location"
+              src="https://maps.google.com/maps?q=Austin+TX&output=embed"
+              loading="lazy"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== NEWSLETTER ==================== -->
+    <section class="newsletter section" aria-labelledby="newsletter-heading">
+      <div class="container">
+        <div class="newsletter__card glass reveal">
+          <div>
+            <h2 id="newsletter-heading" class="section-title section-title--sm">Insights From the Studio</h2>
+            <p class="section-desc">Design trends, case studies, and growth strategies—delivered monthly.</p>
+          </div>
+          <form class="newsletter-form" id="newsletterForm">
+            <input type="email" placeholder="Your email address" aria-label="Email for newsletter" required>
+            <button type="submit" class="btn btn--primary">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container footer__top">
+      <div class="footer__brand">
+        <a href="#home" class="nav__brand">
+          <span class="nav__logo">IQ</span>
+          <span class="nav__title">Iqra Digital Studio</span>
+        </a>
+        <p>Crafting digital experiences that inspire growth for brands that refuse to blend in.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Web Design</a></li>
+          <li><a href="#services">Development</a></li>
+          <li><a href="#services">Branding</a></li>
+          <li><a href="#services">Marketing</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#portfolio">Work</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@iqradigitalstudio.com">hello@iqradigitalstudio.com</a></li>
+          <li><a href="tel:+15559876543">+1 (555) 987-6543</a></li>
+          <li>Austin, TX</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <p>&copy; 2026 Iqra Digital Studio. All rights reserved.</p>
+      <div class="footer__legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+      <div class="footer__social">
+        <a href="#" aria-label="LinkedIn">in</a>
+        <a href="#" aria-label="Twitter">𝕏</a>
+        <a href="#" aria-label="Instagram">Ig</a>
+        <a href="#" aria-label="Dribbble">Dr</a>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <script>
+/**
+ * Iqra Digital Studio — Main Script
+ * Features: loader, theme, sticky header, mobile nav, smooth scroll,
+ * scroll reveal, counters, FAQ accordion, portfolio filter,
+ * testimonial slider, card tilt, parallax, back-to-top, forms
+ */
+
+(function () {
+  'use strict';
+
+  /* --- DOM --- */
+  const loader      = document.getElementById('loader');
+  const loaderBar   = document.getElementById('loaderBar');
+  const header      = document.getElementById('header');
+  const navToggle   = document.getElementById('navToggle');
+  const navMenu     = document.getElementById('navMenu');
+  const themeToggle = document.getElementById('themeToggle');
+  const backToTop   = document.getElementById('backToTop');
+  const navLinks    = document.querySelectorAll('.nav__link');
+  const reveals     = document.querySelectorAll('.reveal');
+  const counters    = document.querySelectorAll('[data-count], .counter');
+  const accordion   = document.getElementById('faqAccordion');
+  const filterBtns  = document.querySelectorAll('.filter__btn');
+  const projects    = document.querySelectorAll('.project');
+  const sliderTrack = document.getElementById('sliderTrack');
+  const sliderPrev  = document.getElementById('sliderPrev');
+  const sliderNext  = document.getElementById('sliderNext');
+  const sliderDots  = document.getElementById('sliderDots');
+  const slides      = document.querySelectorAll('.slide');
+  const contactForm = document.getElementById('contactForm');
+  const newsForm    = document.getElementById('newsletterForm');
+  const tiltCards   = document.querySelectorAll('[data-tilt]');
+  const parallaxEl  = document.querySelector('[data-parallax]');
+
+  /* ==========================================================
+     LOADING SCREEN
+     ========================================================== */
+  function initLoader() {
+    document.body.style.overflow = 'hidden';
+    let progress = 0;
+
+    const tick = setInterval(() => {
+      progress += Math.random() * 12 + 6;
+      if (progress >= 100) {
+        progress = 100;
+        clearInterval(tick);
+        loaderBar.style.width = '100%';
+        setTimeout(() => {
+          loader.classList.add('is-hidden');
+          document.body.style.overflow = '';
+        }, 450);
+      } else {
+        loaderBar.style.width = progress + '%';
+      }
+    }, 110);
+  }
+
+  /* ==========================================================
+     THEME TOGGLE (localStorage)
+     ========================================================== */
+  function initTheme() {
+    const saved = localStorage.getItem('iqra-theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', saved);
+
+    themeToggle.addEventListener('click', () => {
+      const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('iqra-theme', next);
+    });
+  }
+
+  /* ==========================================================
+     STICKY HEADER + BACK TO TOP
+     ========================================================== */
+  function initScrollUI() {
+    const onScroll = () => {
+      header.classList.toggle('is-scrolled', window.scrollY > 50);
+      backToTop.classList.toggle('is-visible', window.scrollY > 480);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  /* ==========================================================
+     MOBILE NAVIGATION
+     ========================================================== */
+  function initMobileNav() {
+    navToggle.addEventListener('click', () => {
+      const open = navMenu.classList.toggle('is-open');
+      navToggle.classList.toggle('is-open', open);
+      navToggle.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', closeNav);
+    });
+
+    function closeNav() {
+      navMenu.classList.remove('is-open');
+      navToggle.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+  }
+
+  /* ==========================================================
+     SMOOTH SCROLL + ACTIVE NAV LINK
+     ========================================================== */
+  function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', e => {
+        const href = anchor.getAttribute('href');
+        if (href === '#') return;
+        const target = document.querySelector(href);
+        if (!target) return;
+        e.preventDefault();
+        window.scrollTo({
+          top: target.offsetTop - header.offsetHeight,
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    const sections = document.querySelectorAll('section[id]');
+    window.addEventListener('scroll', () => {
+      const pos = window.scrollY + header.offsetHeight + 80;
+      sections.forEach(sec => {
+        if (pos >= sec.offsetTop && pos < sec.offsetTop + sec.offsetHeight) {
+          navLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + sec.id);
+          });
+        }
+      });
+    }, { passive: true });
+  }
+
+  /* ==========================================================
+     SCROLL REVEAL
+     ========================================================== */
+  function initReveal() {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('is-visible'), i * 70);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+
+    reveals.forEach(el => observer.observe(el));
+  }
+
+  /* ==========================================================
+     ANIMATED COUNTERS
+     ========================================================== */
+  function animateCounter(el) {
+    const target = parseInt(el.dataset.count, 10);
+    const suffix = el.dataset.suffix || '';
+    const duration = 2000;
+    const start = performance.now();
+
+    function step(now) {
+      const t = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+      el.textContent = Math.floor(eased * target) + suffix;
+      if (t < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  function initCounters() {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.45 });
+
+    counters.forEach(el => observer.observe(el));
+  }
+
+  /* ==========================================================
+     FAQ ACCORDION (one open at a time)
+     ========================================================== */
+  function initAccordion() {
+    const triggers = accordion.querySelectorAll('.accordion__trigger');
+
+    triggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const item = trigger.closest('.accordion__item');
+        const isOpen = item.classList.contains('is-open');
+
+        accordion.querySelectorAll('.accordion__item').forEach(i => {
+          i.classList.remove('is-open');
+          i.querySelector('.accordion__trigger').setAttribute('aria-expanded', 'false');
+        });
+
+        if (!isOpen) {
+          item.classList.add('is-open');
+          trigger.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  }
+
+  /* ==========================================================
+     PORTFOLIO FILTER
+     ========================================================== */
+  function initFilter() {
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+
+        projects.forEach(card => {
+          const show = filter === 'all' || card.dataset.category === filter;
+          card.classList.toggle('is-hidden', !show);
+        });
+      });
+    });
+  }
+
+  /* ==========================================================
+     TESTIMONIAL SLIDER (auto, dots, swipe)
+     ========================================================== */
+  function initSlider() {
+    let index = 0;
+    const total = slides.length;
+    let timer;
+    let touchStart = 0;
+
+    /* Build dots */
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'slider__dot' + (i === 0 ? ' is-active' : '');
+      dot.setAttribute('aria-label', 'Go to testimonial ' + (i + 1));
+      dot.addEventListener('click', () => { goTo(i); resetAuto(); });
+      sliderDots.appendChild(dot);
+    });
+
+    const dots = sliderDots.querySelectorAll('.slider__dot');
+
+    function goTo(i) {
+      index = (i + total) % total;
+      sliderTrack.style.transform = 'translateX(-' + index * 100 + '%)';
+      dots.forEach((d, j) => d.classList.toggle('is-active', j === index));
+    }
+
+    function next() { goTo(index + 1); }
+    function prev() { goTo(index - 1); }
+
+    sliderNext.addEventListener('click', () => { next(); resetAuto(); });
+    sliderPrev.addEventListener('click', () => { prev(); resetAuto(); });
+
+    function startAuto() { timer = setInterval(next, 5500); }
+    function resetAuto() { clearInterval(timer); startAuto(); }
+
+    sliderTrack.addEventListener('touchstart', e => {
+      touchStart = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    sliderTrack.addEventListener('touchend', e => {
+      const diff = touchStart - e.changedTouches[0].screenX;
+      if (Math.abs(diff) > 50) {
+        diff > 0 ? next() : prev();
+        resetAuto();
+      }
+    }, { passive: true });
+
+    startAuto();
+  }
+
+  /* ==========================================================
+     CARD TILT
+     ========================================================== */
+  function initTilt() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    tiltCards.forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform =
+          'perspective(700px) rotateY(' + (x * 8) + 'deg) rotateX(' + (-y * 8) + 'deg) translateY(-6px)';
+      });
+      card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+    });
+  }
+
+  /* ==========================================================
+     PARALLAX
+     ========================================================== */
+  function initParallax() {
+    if (!parallaxEl || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const speed = parseFloat(parallaxEl.dataset.parallax) || 0.05;
+
+    window.addEventListener('scroll', () => {
+      parallaxEl.style.transform = 'translateY(' + (window.scrollY * speed) + 'px)';
+    }, { passive: true });
+  }
+
+  /* ==========================================================
+     FORMS (placeholder handlers)
+     ========================================================== */
+  function initForms() {
+    contactForm.addEventListener('submit', e => {
+      e.preventDefault();
+      if (!contactForm.checkValidity()) {
+        contactForm.reportValidity();
+        return;
+      }
+      alert('Thank you! Iqra Digital Studio will respond within 24 hours.');
+      contactForm.reset();
+    });
+
+    newsForm.addEventListener('submit', e => {
+      e.preventDefault();
+      alert('You are subscribed. Welcome to the studio newsletter!');
+      newsForm.reset();
+    });
+  }
+
+  /* ==========================================================
+     INIT
+     ========================================================== */
+  function init() {
+    initLoader();
+    initTheme();
+    initScrollUI();
+    initMobileNav();
+    initSmoothScroll();
+    initReveal();
+    initCounters();
+    initAccordion();
+    initFilter();
+    initSlider();
+    initTilt();
+    initParallax();
+    initForms();
+  }
+
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+
+</script>
+</body>
+</html>
